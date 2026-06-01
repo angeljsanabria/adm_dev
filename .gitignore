@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+
+# zip files
+**/*.zip
+
+# STM32CubeIDE / Eclipse build outputs
+**/Debug/
+**/Release/
+**/build/
+
+# Compiled objects and dependency files
+**/*.o
+**/*.obj
+**/*.d
+**/*.dep
+**/*.su
+**/*.i
+
+# Linker and binary artifacts
+**/*.elf
+**/*.axf
+**/*.out
+**/*.map
+**/*.hex
+**/*.bin
+**/*.srec
+**/*.list
+
+# Tool and debug logs
+**/st-link_gdbserver_log.txt
+**/STM32CubeProgrammer.log
+**/*.launchbak
+
+# Local IDE-generated settings that are usually machine-specific
+**/.settings/language.settings.xml
+**/.settings/com.st.stm32cube.ide.mcu.sfrview.prefs
+**/.settings/org.eclipse.core.resources.prefs
+**/.settings/stm32cubeide.project.prefs
