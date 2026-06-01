@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "functions.h"
+#include "datos_prueba_ge2.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -64,30 +65,10 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-    /* ----------- Ejercicio 1 ----------- */
-    uint16_t esc = 2;
-    uint32_t vec[] = {1, 2, 3, 4, 5};
-    uint32_t lon = sizeof(vec)/sizeof(vec[0]);
-    uint32_t vecOut1[5] = {0};
-//    productoEscalar32(vec, vecOut1, lon, esc);
-    asm_productoEscalar32(vec, vecOut1, lon, esc);
+	/* ----------- Ejercicio 4 ----------- */
+	asm_invertir((uint16_t *)buffer_ej4_in, (uint16_t)LONGITUD_EJ4_PAR);
+	asm_invertir((uint16_t *)buffer_ej4_in_b, (uint16_t)LONGITUD_EJ4_IMPAR);
 
-    /* ----------- Ejercicio 2 ----------- */
-    uint16_t esc_2 = 10;
-    uint16_t vec_2[] = {10, 20, 30, 40, 50};
-    uint16_t lon_2 = sizeof(vec)/sizeof(vec[0]);
-    uint16_t vecOut2[5] = {0};
-//    productoEscalar32(vec, vecOut1, lon, esc);
-    asm_productoEscalar16(vec_2, vecOut2, lon_2, esc_2);
-
-    /* ----------- Ejercicio 3 ----------- */
-    //uint32_t a = 0xffffffff;
-    //uint32_t b = bitfield_clear(a, 5, 3);
-//    uint32_t c = asm_bitfield_clear(a, 5, 3);
-    /* ----------- Ejercicio 4 ----------- */
-    uint32_t a = 0xaaaaf0f0;
-
-    uint32_t d = asm_bitfield_toggle(a, 16, 0);
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -117,7 +98,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
 //	  productoEscalar32(vec, vecOut1, lon, esc);
-	  asm_productoEscalar32(vec, vecOut1, lon, esc);
+//	  asm_productoEscalar32(vec, vecOut1, lon, esc);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
