@@ -44,6 +44,7 @@ static const int32_t Signal_HF[LONGITUD_EJ2_IN] = {
 
 static const int32_t vectorIn_ej3[LONGITUD_EJ3] = {
     120, -45, 310, 89, 542, -12, 410, 201, 678, 912, 430, -90, 912, 150, 300
+//    0 ,  1,   2,  3,   4,   5,   6,   7,   8,   9,  10,   11, 12,  13,  14 //
 };
 
 
@@ -75,9 +76,9 @@ void invertir(uint16_t *buffer, uint16_t longitud);
 // ============================================================================
 // PROTOTIPOS DE LAS FUNCIONES EN ASSEMBLY
 // ============================================================================
-void asm_GPS_unpack(int32_t *GPS_data, int16_t *GPS_Lat, int16_t *GPS_Long, uint16_t longitud);
-void asm_downSample(int32_t *Signal_HF, int32_t *Signal_LF, uint16_t longitud, uint16_t N);
-uint32_t asm_max(int32_t *vectorIn, uint32_t longitud);
-void asm_invertir(uint16_t *buffer, uint16_t longitud);
+//void asm_GPS_unpack(int32_t *GPS_data, int16_t *GPS_Lat, int16_t *GPS_Long, uint16_t longitud);
+//void asm_downSample(int32_t *Signal_HF, int32_t *Signal_LF, uint16_t longitud, uint16_t N);
+//uint32_t asm_max(int32_t *vectorIn, uint32_t longitud);
+//void asm_invertir(uint16_t *buffer, uint16_t longitud);
 
 #endif // DATOS_PRUEBA_GE2_H

@@ -66,9 +66,38 @@ int main(void)
 
   /* USER CODE BEGIN 1 */
 	/* ----------- Ejercicio 4 ----------- */
-	asm_invertir((uint16_t *)buffer_ej4_in, (uint16_t)LONGITUD_EJ4_PAR);
-	asm_invertir((uint16_t *)buffer_ej4_in_b, (uint16_t)LONGITUD_EJ4_IMPAR);
+	uint16_t buffer_par[LONGITUD_EJ4_PAR] = {0};
+	uint16_t buffer_impar[LONGITUD_EJ4_IMPAR] = {0};
+	int32_t  vectorIn_max[LONGITUD_EJ3] = {0};
+	int32_t Signal_HF_test[LONGITUD_EJ2_IN] = {0};
+	int32_t Signal_LF_test[4] = {0};     // 36/3 = 12 muestras
+	uint16_t muestras = LONGITUD_EJ2_IN;
+	uint16_t muestrasRed = 9;
 
+
+	for (uint8_t i = 0; i < LONGITUD_EJ4_PAR; i++)		buffer_par[i] = buffer_ej4_in[i];
+	for (uint8_t i = 0; i < LONGITUD_EJ4_IMPAR; i++)	buffer_impar[i] = buffer_ej4_in_b[i];
+	for (uint8_t i = 0; i < LONGITUD_EJ3; i++)			vectorIn_max[i] = vectorIn_ej3[i];
+	for (uint8_t i = 0; i < LONGITUD_EJ2_IN; i++)		Signal_HF_test[i] = Signal_HF[i];
+
+	asm_invertir((uint16_t *)buffer_par, (uint16_t)LONGITUD_EJ4_PAR);
+	asm_invertir((uint16_t *)buffer_impar, (uint16_t)LONGITUD_EJ4_IMPAR);
+
+	uint32_t indice;
+	indice = asm_max((int32_t *)vectorIn_max, LONGITUD_EJ3);
+
+	vectorIn_max[0] = (int32_t)(vectorIn_max[indice] + 38);
+	(void)indice;
+
+	indice = asm_max((int32_t *)vectorIn_max, LONGITUD_EJ3);
+	(void)indice;
+
+	vectorIn_max[LONGITUD_EJ3-1] = (int32_t)(vectorIn_max[indice] + 38);
+
+	indice = asm_max((int32_t *)vectorIn_max, LONGITUD_EJ3);
+	(void)indice;
+
+	asm_downSample((int32_t *)Signal_HF_test,(int32_t*)Signal_LF_test, muestras, muestrasRed);
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
